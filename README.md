@@ -11,7 +11,7 @@ git clone <ссылка>
 ```
 pip install -r requirements.txt
 ``` 
-- перейдите в папку backend, затем в папку src и выполните команду:
+- перейдите в папку src и выполните команду:
 ```
 uvicorn main:app --reload 
 ```
