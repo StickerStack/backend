@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi_users import FastAPIUsers
 from auth.auth import auth_backend
 from auth.db import User
@@ -9,6 +10,19 @@ from exceptions import Initial500, initial500_exception_handler
 
 
 app = FastAPI(title='StickerStack')
+
+origins = [
+    'http://localhost:3000',
+    'http://localhost:8080'
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 fastapi_users = FastAPIUsers[User, int](
     get_user_manager,
