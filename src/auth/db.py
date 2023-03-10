@@ -9,8 +9,6 @@ from .mail import get_verification_code
 
 class User(SQLAlchemyBaseUserTable[int], Base):
     id: int = Column(Integer, primary_key=True, index=True)
-    username: str = Column(
-        String(length=320), unique=True, index=True, nullable=False)
     email: str = Column(
         String(length=320), unique=True, index=True, nullable=False)
     hashed_password: str = Column(String(length=1024), nullable=False)

@@ -11,9 +11,6 @@ user = Table(
     metadata,
     Column('id', Integer, primary_key=True, index=True),
     Column(
-        'username', String(length=320),
-        unique=True, index=True, nullable=True),
-    Column(
         'email', String(length=320),
         unique=True, index=True, nullable=False),
     Column('hashed_password', String(length=1024), nullable=False),
